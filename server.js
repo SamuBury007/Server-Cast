@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const fetch = require('node-fetch');
 
 const app = express();
 app.use(cors());
@@ -10,7 +9,7 @@ app.get('/proxy', async (req, res) => {
   if (!url) return res.status(400).send('URL mancante');
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url); // fetch nativa
     let html = await response.text();
 
     // Rimuove target="_blank" dai link
